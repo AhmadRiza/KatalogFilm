@@ -18,7 +18,7 @@
         android:textSize="30sp"
         android:gravity="center"
         android:id="@+id/tv_title"
-        android:text="Nama Aplikasi"/>
+        android:text="Aplikasi Saya"/>
 
     <LinearLayout
         android:layout_below="@+id/tv_title"
