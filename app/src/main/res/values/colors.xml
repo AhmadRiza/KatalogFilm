@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+<!--    title bar-->
     <color name="colorPrimary">#03A9F4</color>
+<!--    status bar-->
     <color name="colorPrimaryDark">#03A9F4</color>
+<!--    aksen view-->
     <color name="colorAccent">#FFAB00</color>
 </resources>
