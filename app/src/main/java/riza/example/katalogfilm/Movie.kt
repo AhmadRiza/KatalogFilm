@@ -8,5 +8,15 @@ data class Movie(
     val title: String,
     val year: String,
     val detail: String,
-    val poster: String
+    val poster: Int
 )
+
+
+fun coba(){
+
+    val i : Int = 0
+
+
+
+
+}

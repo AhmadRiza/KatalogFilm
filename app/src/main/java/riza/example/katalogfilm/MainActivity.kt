@@ -29,11 +29,7 @@ class MainActivity : AppCompatActivity() {
 
             if(usernameInput == username && passwordInput == password){
 
-                val intent = Intent(this, NamaActivity::class.java)
-
-                intent.putExtra("name", username)
-                intent.putExtra("alamat", alamat)
-
+                val intent = Intent(this, RVActivity::class.java)
                 startActivity(intent)
 
 
