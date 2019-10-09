@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="riza.example.katalogfilm">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,11 +12,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".RVActivity"></activity>
-        <activity android:name=".NamaActivity" />
-        <activity android:name=".Main2Activity"></activity>
-        <activity android:name=".BerandaActivity" />
+        <activity android:name=".HomeActivity"></activity>
+        <activity
+            android:name=".DetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".RVActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".example.NamaActivity" />
+        <activity android:name=".example.Main2Activity" />
+        <activity android:name=".example.BerandaActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,11 +1,12 @@
-package riza.example.katalogfilm
+package riza.example.katalogfilm.adapter
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_fc.view.*
-import kotlinx.android.synthetic.main.item_movie.view.*
+import riza.example.katalogfilm.model.FC
+import riza.example.katalogfilm.R
 
 /**
  * Created by riza@deliv.co.id on 9/25/19.

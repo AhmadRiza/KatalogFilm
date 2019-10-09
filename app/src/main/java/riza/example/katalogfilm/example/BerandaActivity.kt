@@ -1,7 +1,8 @@
-package riza.example.katalogfilm
+package riza.example.katalogfilm.example
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import riza.example.katalogfilm.R
 
 class BerandaActivity : AppCompatActivity() {
 

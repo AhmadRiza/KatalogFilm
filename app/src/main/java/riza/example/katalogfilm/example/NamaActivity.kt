@@ -1,8 +1,9 @@
-package riza.example.katalogfilm
+package riza.example.katalogfilm.example
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_nama.*
+import riza.example.katalogfilm.R
 
 class NamaActivity : AppCompatActivity() {
 

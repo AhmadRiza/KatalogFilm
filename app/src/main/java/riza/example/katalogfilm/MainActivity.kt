@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
 
             if(usernameInput == username && passwordInput == password){
 
-                val intent = Intent(this, RVActivity::class.java)
+                val intent = Intent(this, HomeActivity::class.java)
                 startActivity(intent)
 
 

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="horizontal"
     android:padding="16dp"
-    tools:context=".BerandaActivity">
+    tools:context=".example.BerandaActivity">
 
 
     <ImageView

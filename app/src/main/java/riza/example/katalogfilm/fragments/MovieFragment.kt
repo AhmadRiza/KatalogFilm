@@ -1,28 +1,33 @@
-package riza.example.katalogfilm
+package riza.example.katalogfilm.fragments
+
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
-import kotlinx.android.synthetic.main.activity_detail.*
-import kotlinx.android.synthetic.main.activity_rv.*
-import kotlinx.android.synthetic.main.activity_rv.toolbar
+import kotlinx.android.synthetic.main.fragment_movie.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import riza.example.katalogfilm.DetailActivity
+
+import riza.example.katalogfilm.R
 import riza.example.katalogfilm.adapter.MovieAdapter
 import riza.example.katalogfilm.adapter.MovieListener
 import riza.example.katalogfilm.api.MyClient
 import riza.example.katalogfilm.model.Film
-import riza.example.katalogfilm.model.Movie
 import riza.example.katalogfilm.model.NowPlayingResponse
 
-class RVActivity : AppCompatActivity(), MovieListener {
+
+class MovieFragment : Fragment(), MovieListener {
 
     override fun onClick(position: Int, movie: Film) {
 
-        val intent = Intent(this, DetailActivity::class.java)
+        val intent = Intent(context, DetailActivity::class.java)
 
         intent.putExtra("title", movie.title)
         intent.putExtra("detail", movie.overview)
@@ -38,13 +43,20 @@ class RVActivity : AppCompatActivity(), MovieListener {
 
     private lateinit var movieAdapter : MovieAdapter
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_rv)
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return inflater.inflate(R.layout.fragment_movie, container, false)
+    }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+//        do anything
         setView()
         loadMovie()
-        setUpToolbar("Beranda")
+
     }
 
     private fun loadMovie(){
@@ -56,7 +68,7 @@ class RVActivity : AppCompatActivity(), MovieListener {
                 override fun onFailure(call: Call<NowPlayingResponse>, t: Throwable) {
 
                     //kodingan kalo gagal
-                    Toast.makeText(this@RVActivity, t.message, Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, t.message, Toast.LENGTH_SHORT).show()
 
                 }
 
@@ -93,13 +105,6 @@ class RVActivity : AppCompatActivity(), MovieListener {
             adapter = movieAdapter
 
         }
-
-    }
-
-    private fun setUpToolbar(title: String){
-
-        setSupportActionBar(toolbar) // set toolbar
-        supportActionBar?.title = title //set title
 
     }
 
