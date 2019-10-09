@@ -10,6 +10,7 @@ import kotlinx.android.synthetic.main.item_movie.tv_detail
 import kotlinx.android.synthetic.main.item_movie.tv_rating
 import kotlinx.android.synthetic.main.item_movie.tv_title
 import kotlinx.android.synthetic.main.item_movie.tv_year
+import riza.example.katalogfilm.model.Film
 
 class DetailActivity : AppCompatActivity() {
 
@@ -17,28 +18,30 @@ class DetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
 
+//
+//        val title = intent.getStringExtra("title")
+//        val year = intent.getStringExtra("year")
+//        val detail = intent.getStringExtra("detail")
+//        val poster = intent.getStringExtra("poster")
+//        val rate = intent.getStringExtra("rating")
 
-        val title = intent.getStringExtra("title")
-        val year = intent.getStringExtra("year")
-        val detail = intent.getStringExtra("detail")
-        val poster = intent.getStringExtra("poster")
-        val rate = intent.getStringExtra("rating")
+        val movie = intent.getParcelableExtra<Film>("MOV")
 
 
-        tv_title?.text = title
-        tv_year?.text = year
-        tv_rating?.text = rate
-        tv_detail?.text = detail
+        tv_title?.text = movie.title
+        tv_year?.text = movie.releaseDate
+        tv_rating?.text = movie.voteAvg
+        tv_detail?.text = movie.overview
         img_poster?.apply {
 
             Glide.with(context)
-                .load("https://image.tmdb.org/t/p/w500$poster")
+                .load("https://image.tmdb.org/t/p/w500${movie.backPath}")
                 .into(this)
 
         }
 
 
-        setUpToolbar(title)
+        setUpToolbar(movie.title)
 
     }
 

@@ -35,6 +35,8 @@ class MovieFragment : Fragment(), MovieListener {
         intent.putExtra("poster", movie.backPath)
         intent.putExtra("rating", movie.voteAvg)
 
+        intent.putExtra("MOV", movie)
+
         startActivity(
             intent
         )
