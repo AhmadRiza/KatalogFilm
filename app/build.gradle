@@ -4,6 +4,8 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'kotlin-kapt'
+
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.0"
@@ -22,6 +24,7 @@ android {
         }
     }
 
+    //supaya bisa pake parcelize
     androidExtensions {
         experimental = true
     }
@@ -42,6 +45,10 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.10.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.10.0'
+
+    def room_version = "2.2.0"
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'

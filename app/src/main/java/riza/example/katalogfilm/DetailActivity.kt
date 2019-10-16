@@ -10,23 +10,21 @@ import kotlinx.android.synthetic.main.item_movie.tv_detail
 import kotlinx.android.synthetic.main.item_movie.tv_rating
 import kotlinx.android.synthetic.main.item_movie.tv_title
 import kotlinx.android.synthetic.main.item_movie.tv_year
+import riza.example.katalogfilm.data.AppDB
 import riza.example.katalogfilm.model.Film
+import riza.example.katalogfilm.model.Movie
 
 class DetailActivity : AppCompatActivity() {
+
+    private lateinit var movie: Film
+
+    private val db by lazy { AppDB.getDB(this).movieDao() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
 
-//
-//        val title = intent.getStringExtra("title")
-//        val year = intent.getStringExtra("year")
-//        val detail = intent.getStringExtra("detail")
-//        val poster = intent.getStringExtra("poster")
-//        val rate = intent.getStringExtra("rating")
-
-        val movie = intent.getParcelableExtra<Film>("MOV")
-
+        movie = intent.getParcelableExtra("movie")!!
 
         tv_title?.text = movie.title
         tv_year?.text = movie.releaseDate
@@ -42,6 +40,8 @@ class DetailActivity : AppCompatActivity() {
 
 
         setUpToolbar(movie.title)
+
+        setFavButton()
 
     }
 
@@ -59,4 +59,30 @@ class DetailActivity : AppCompatActivity() {
         onBackPressed()
         return super.onSupportNavigateUp()
     }
+
+    fun setFavButton(){
+
+        //check if movie di dalam db / tidak
+        val foundFilm = db.getMovieWithID(movie.id)
+
+        if(foundFilm == null){
+            fab.setImageResource(R.drawable.ic_favorite_border)
+
+            fab.setOnClickListener {
+                db.insertAll(movie)
+                setFavButton()
+            }
+        }else{
+            fab.setImageResource(R.drawable.ic_favorite_white)
+
+            fab.setOnClickListener {
+                db.delete(movie)
+                setFavButton()
+            }
+
+        }
+
+    }
+
+
 }

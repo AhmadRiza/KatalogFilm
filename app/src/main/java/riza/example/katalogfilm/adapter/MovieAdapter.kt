@@ -22,6 +22,7 @@ class MovieAdapter(val listener: MovieListener) : RecyclerView.Adapter<MovieVH>(
     private val mData = arrayListOf<Film>()
 
     fun updateData(data: ArrayList<Film>) {
+        mData.clear()
         mData.addAll(data)
         notifyDataSetChanged()
     }
@@ -60,6 +61,7 @@ class MovieVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
         itemView.tv_rating?.text = data.voteAvg
         itemView.img_poster?.apply {
 
+            //load gambar
             Glide.with(context)
                 .load("https://image.tmdb.org/t/p/w500"+data.posterPath)
                 .into(this)

@@ -14,22 +14,26 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".HomeActivity"></activity>
-        <activity
-            android:name=".DetailActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".RVActivity"
-            android:screenOrientation="portrait" />
-        <activity android:name=".example.NamaActivity" />
-        <activity android:name=".example.Main2Activity" />
-        <activity android:name=".example.BerandaActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".HomeActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+        </activity>
+        <activity
+            android:name=".DetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".example.RVActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".example.NamaActivity" />
+        <activity android:name=".example.Main2Activity" />
+        <activity android:name=".example.BerandaActivity" />
+        <activity android:name=".example.MainActivity">
+
         </activity>
     </application>
 

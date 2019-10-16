@@ -1,10 +1,12 @@
-package riza.example.katalogfilm
+package riza.example.katalogfilm.example
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
+import riza.example.katalogfilm.HomeActivity
+import riza.example.katalogfilm.R
 
 class MainActivity : AppCompatActivity() {
 
